@@ -29,30 +29,23 @@ const categorySchema = new Schema(
     name: { 
         type: String,
         require: true,
-        
-        lowercase: true },
-    quantity: { type: Number, default: 0 },
-    active: { type: Boolean, default: true },
+        lowercase: true
+        },
+    quantity: {
+        type: Number,
+        default: 0 
+        },
+    active: { 
+        type: Boolean,
+        default: true
+        },
   },
   {
     timestamps: true,
     versionKey: false,
   }
 );
-// categorySchema.statics.decrementCategoryProducts = function (categoryName) {
-//   this.findOneAndUpdate(
-//     { name: categoryName },
-//     { $inc: { quantity: -1 } },
-//     { new: true }
-//   );
-// };
-// categorySchema.statics.incrementCategoryProducts = function (categoryName) {
-//   this.findOneAndUpdate(
-//     { name: categoryName },
-//     { $inc: { quantity: 1 } },
-//     { new: true }
-//   );
-// };
+
 const Category = mongoose.model("Category", categorySchema);
 
 module.exports = { Category, CATEGORIES };

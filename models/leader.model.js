@@ -34,23 +34,12 @@ const Leader = mongoose.model(
               ref: "Role",
             },
           ],
-        //   subscribed: {
-        //     type: Boolean,
-        //     default: false,
-        //   },
-        //   profileState: {
-        //     type: String,
-        //     default: "incomplete",
-        //     trim: true,
-        //     lowercase: true,
-        //   },
           orders: [
             {
               type: Schema.Types.ObjectId,
               ref: "Order",
             },
           ],
-        //   client: { type: Boolean, default: false },
         },
         {
           timestamps: true,
