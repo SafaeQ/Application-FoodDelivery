@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
-
+// const {Role} = require('./role.model')
+const Schema = mongoose.Schema
 const Leader = mongoose.model(
     'Leader',
     new mongoose.Schema({
@@ -32,12 +33,6 @@ const Leader = mongoose.model(
             {
               type: Schema.Types.ObjectId,
               ref: "Role",
-            },
-          ],
-          orders: [
-            {
-              type: Schema.Types.ObjectId,
-              ref: "Order",
             },
           ],
         },
