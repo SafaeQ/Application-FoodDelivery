@@ -26,7 +26,11 @@ const CATEGORIES = [
 
 const categorySchema = new Schema(
   {
-    name: { type: String, require: true, trim: true, lowercase: true },
+    name: { 
+        type: String,
+        require: true,
+        
+        lowercase: true },
     quantity: { type: Number, default: 0 },
     active: { type: Boolean, default: true },
   },
