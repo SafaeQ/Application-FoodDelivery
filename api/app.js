@@ -15,6 +15,6 @@ db()
     })
     .then(()=>{
         app.listen(process.env.PORT,()=>{
-            console.log(` 🐱The server is runnig`);
+            console.log(` 🐱The app is runnig`);
         })
     })
