@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 // const {Role} = require('./role.model')
-const Schema = mongoose.Schema
 const Leader = mongoose.model(
     'Leader',
     new mongoose.Schema({
@@ -14,7 +13,6 @@ const Leader = mongoose.model(
             type: String,
             required: true,
           },
-      
           email: {
             type: String,
             required: true,
@@ -29,12 +27,10 @@ const Leader = mongoose.model(
             type: Number,
             required: false,
           },
-          roles: [
-            {
-              type: Schema.Types.ObjectId,
-              ref: "Role",
-            },
-          ],
+          role: {
+            type: String,
+            default: 'leader'
+          }
         },
         {
           timestamps: true,
