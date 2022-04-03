@@ -36,7 +36,9 @@ const delete_chefSecteur = async (req, res) => {
         user.catch((error) => { throw error })
 
         res.status(200).send('User is deleted')
+
     } catch (error) {
+        
         res.status(400).send(error)
     }
 }

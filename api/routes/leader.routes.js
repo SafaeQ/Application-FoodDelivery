@@ -1,7 +1,12 @@
 const leaderRouter = require('express').Router()
-const {signUp} = require('../controllers/user.controller')
 
-leaderRouter.post('/add-leader', signUp)
+const {add_new_chefSecteur, delete_chefSecteur} = require('../controllers/user.controller')
+
+
+//# routes Create/remove Chef Secteur
+leaderRouter.post('/add-leader', add_new_chefSecteur)
+
+leaderRouter.post('/delete-leader', delete_chefSecteur)
 
 
 module.exports= leaderRouter
