@@ -5,7 +5,7 @@ const cors = require('cors')
 const db = require('./connection/db')
 
 // routes
-const leaderRouter = require('./routes/leader.routes')
+// const leaderRouter = require('./routes/leader.routes')
 const router = require('./routes/routes')
 
 
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors())
 
 app.use('/', router)
-app.use('/api', leaderRouter)
+// app.use('/api', leaderRouter)
 
 db()
     .catch((err)=>{

@@ -11,26 +11,17 @@ const Leader = mongoose.model(
       
           password: {
             type: String,
-            required: true,
           },
           email: {
             type: String,
-            required: true,
             unique: true,
-            index: 1,
           },
           address: {
             type: String,
-            required: false,
           },
           number: {
             type: Number,
-            required: false,
           },
-          role: {
-            type: String,
-            default: 'leader'
-          }
         },
         {
           timestamps: true,
