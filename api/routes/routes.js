@@ -2,7 +2,7 @@ const express = require('express')
 
 const router =express.Router()
 
-const {signUp, login} = require('../controllers/leader.controller')
+const {signUp, login} = require('../controllers/user.controller')
 
 
 router.get('/home', (req, res)=>{ res.send('heyyy ') })
