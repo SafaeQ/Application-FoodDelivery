@@ -12,6 +12,8 @@ const db = require('./connection/db')
 //# routes
 const leaderRouter = require('./routes/leader.routes')
 
+const livreurRouter = require('./routes/livreur.routes')
+
 const router = require('./routes/routes')
 
 
@@ -27,6 +29,9 @@ app.use(cors())
 app.use('/', router)
 
 app.use('/api', leaderRouter)
+
+app.use('/api', livreurRouter)
+
 
 //# running the server
 db().catch((err)=>{ throw err }).then(()=>{ app.listen(process.env.PORT,()=>{ console.log(` 🐱The app is runnig`) })})
