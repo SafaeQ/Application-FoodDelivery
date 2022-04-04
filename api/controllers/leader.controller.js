@@ -15,9 +15,9 @@ const add_new_chefSecteur = async (req, res) => {
 
         const leader = { name, password: hashedPassword, email, adress, number }
 
-        Leader.create({leader})
+        const newLeader = Leader.create({leader})
 
-        const result = await leader.save()
+        const result = await newLeader.save()
 
         res.status(200).send(result)
         
