@@ -6,17 +6,17 @@ const bcrypt = require('bcryptjs')
 const add_new_chefSecteur = async (req, res) => {
     try {
         const {name, email, adress, number, password} = req.body
-
-        const emailExist = await Leader.findOne({ email: req.body.email });
+      console.log(req.body);
+        const emailExist = await Leader.findOne({ email });
 
         if(emailExist) return res.status(400).send("Email Already Exist!");
-
+      console.log('----------');
         const hashedPassword = await bcrypt.hash(password);
-
+  
         const leader = { name, password: hashedPassword, email, adress, number }
 
         const newLeader = Leader.create({leader})
-
+        
         const result = await newLeader.save()
 
         res.status(200).send(result)
