@@ -19,6 +19,8 @@ const router = require('./routes/routes')
 
 const app = express();
 
+app.use(express.json())
+
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,6 +29,11 @@ app.use(cors())
 
 
 app.use('/', router)
+
+app.post('/test', function(req, res){
+    let test = req.body
+    console.log(test);
+})
 
 app.use('/api', leaderRouter)
 

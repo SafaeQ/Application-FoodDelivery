@@ -30,4 +30,4 @@ const Leader = mongoose.model(
     )
 )
 
-module.exports = Leader
+module.exports = {Leader}

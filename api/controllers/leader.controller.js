@@ -1,4 +1,4 @@
-const Leader = require('../models/leader.model')
+const {Leader} = require('../models/leader.model')
 
 const bcrypt = require('bcryptjs')
 
