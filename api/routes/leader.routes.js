@@ -2,7 +2,7 @@ const express = require('express')
 
 const leaderRouter = express.Router()
 
-const { add_new_chefSecteur, delete_chefSecteur } = require('../controllers/user.controller')
+const { add_new_chefSecteur, delete_chefSecteur } = require('../controllers/leader.controller')
 
 
 //# routes Create/remove Chef Secteur

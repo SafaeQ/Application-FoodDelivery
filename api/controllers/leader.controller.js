@@ -43,6 +43,6 @@ const delete_chefSecteur = async (req, res) => {
     }
 }
 
-module.exports= {
+module.exports = {
     add_new_chefSecteur, delete_chefSecteur
 }

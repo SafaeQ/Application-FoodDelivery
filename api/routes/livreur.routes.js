@@ -1,6 +1,6 @@
 const livreurRouter = require('express').Router()
 
-const {add_new_Delivery_man, delete_Delivery_man} = require('../controllers/user.controller')
+const {add_new_Delivery_man, delete_Delivery_man} = require('../controllers/livreur.controller')
 
 
 //# routes Create/remove Chef Secteur
