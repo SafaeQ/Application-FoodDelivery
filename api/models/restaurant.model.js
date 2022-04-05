@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const Restaurant = mongoose.model(
     'Restaurant', 
     new mongoose.Schema({
-        name: {
+        restaurant_name: {
             type: String,
             required: true
         },
@@ -15,9 +15,15 @@ const Restaurant = mongoose.model(
             type: String
         },
         date: {
-            type: Date.now()
+            type: Date,
+            default: Date.now()
         }
-    })
+    },
+    {
+        timestamps: true,
+        versionKey: false,
+    }
+    )
 )
 
 module.exports = Restaurant

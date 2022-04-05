@@ -14,6 +14,8 @@ const leaderRouter = require('./routes/leader.routes')
 
 const livreurRouter = require('./routes/livreur.routes')
 
+const restaurantRouter = require('./routes/restaurant.routes')
+
 const router = require('./routes/routes')
 
 
@@ -38,6 +40,8 @@ app.post('/test', function(req, res){
 app.use('/api', leaderRouter)
 
 app.use('/api', livreurRouter)
+
+app.use('/restaurant', restaurantRouter)
 
 
 //# running the server
