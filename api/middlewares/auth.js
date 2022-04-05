@@ -14,7 +14,7 @@ const checkAuthentication = async (req, res, next) => {
 
         if (err) return res.sendStatus(403);
 
-        console.log("decoded", decoded);
+        // console.log("decoded", decoded);
 
         req.user = decoded; // {id:?,role:?}
 
