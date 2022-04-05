@@ -19,3 +19,5 @@ const Restaurant = mongoose.model(
         }
     })
 )
+
+module.exports = Restaurant
