@@ -38,7 +38,7 @@ const signUp = async (req, res)=> {
 
 const login = async (req, res) =>{
 
-    const { email, password} = req.body
+    const { email, password } = req.body
     
     const user = await User.findOne({email});
     
@@ -48,7 +48,7 @@ const login = async (req, res) =>{
     
     if (!validPassowrd) return res.status(400).send('Password incorrect')
     
-    const token = jwt.sign({ _id: user._id }, 'secret');
+    const token = jwt.sign({ _id: user._id, role: user.role }, 'secret');
 
     res.status(200).json({ status: 'success', token });
     
