@@ -16,22 +16,21 @@ const repastSchema = new Schema(
         required: true,
         default: 0
     },
-    category: { type: String,
+    category: { 
+        type: String,
         required: true,
         lowercase: true,
         trim: true
     },
-    size: { type: String,
-        required: true
-    },
-    description: { type: String,
+    description: { 
+        type: String,
         required: true,
         lowercase: true,
         trim: true
     },
-    image: { type: String,
-        trim: true
-    },
+    // image: { type: String,
+    //     trim: true
+    // },
   },
   {
     timestamps: true,
