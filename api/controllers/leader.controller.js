@@ -4,8 +4,9 @@ const {User} = require('../models/user.model')
 const add_new_chefSecteur = async (req, res) => {
     try {
         const { name, password, email, role, adress, number } = req.body
-        
+
         const newLeader = await User.create({ name, password, email, adress, number,
+            
             role: role === 'admin' ? {
             name: role,
             status: false
