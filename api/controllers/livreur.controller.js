@@ -3,7 +3,17 @@ const { User } = require('../models/user.model')
 
 const add_new_Delivery_man = async (req, res) => {
     try {
-        const delivry_man = await User.create(req.body)
+        const {name, email, password, adress, number, role} =req.body
+
+        const delivry_man = await User.create({ name, email, password, adress, number,
+            
+                role: role === 'delivery_man' ? {
+                name: role,
+                status: false
+            } : {
+                name: role
+           
+        }})
 
         const result = await delivry_man.save()
 
