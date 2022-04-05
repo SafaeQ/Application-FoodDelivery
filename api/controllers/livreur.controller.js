@@ -1,21 +1,9 @@
-const Livreur = require('../models/livreur.model')
-
-const bcrypt = require('bcryptjs')
+const {User} = require('../models/user.model')
 
 
 const add_new_Delivery_man = async (req, res) => {
     try {
-        const {name, email, number, password} = req.body
-
-        const emailExist = await Livreur.findOne({ email: req.body.email });
-
-        if(emailExist) return res.status(400).send("Email Already Exist!");
-
-        const hashedPassword = await bcrypt.hash(password);
-
-        const delivry_man = { name, password: hashedPassword, email, number }
-
-        Livreur.create({delivry_man})
+        const delivry_man = await User.create(req.body)
 
         const result = await delivry_man.save()
 
@@ -31,7 +19,7 @@ const delete_Delivery_man = async (req, res) => {
     try {
         const id = req.params.id
 
-        const delivery_man = await Livreur.findOneAndDelete(id)
+        const delivery_man = await User.findOneAndDelete(id)
 
         delivery_man.catch((error) => { throw error })
 

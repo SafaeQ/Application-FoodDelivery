@@ -1,13 +1,11 @@
-const {Leader} = require('../models/leader.model')
-
-const bcrypt = require('bcryptjs')
+const {User} = require('../models/user.model')
 
 
 const add_new_chefSecteur = async (req, res) => {
     try {
 
-        const newLeader = await Leader.create(req.body)
-        // console.log(newLeader);
+        const newLeader = await User.create(req.body)
+
         const result = await newLeader.save()
 
         res.status(200).send(result)
@@ -22,7 +20,7 @@ const delete_chefSecteur = async (req, res) => {
     try {
         const id = req.params.id
 
-        const user = await Leader.findOneAndDelete(id)
+        const user = await User.findOneAndDelete(id)
 
         user.catch((error) => { throw error })
 

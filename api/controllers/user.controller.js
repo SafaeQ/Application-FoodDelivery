@@ -1,4 +1,4 @@
-const Leader = require('../models/leader.model')
+const {User} = require('../models/User.model')
 
 const bcrypt = require('bcryptjs')
 
@@ -8,20 +8,19 @@ const jwt = require('jsonwebtoken');
 const signUp = async (req, res)=> {
     try {
         const {name, email, adress, number, password} = req.body
-
-        const emailExist = await Leader.findOne({ email: req.body.email });
+        
+        const emailExist = await User.findOne({ email: req.body.email });
 
         if(emailExist) return res.status(400).send("Email Already Exist!");
+        
+        var salt = bcrypt.genSaltSync(10);
 
-        const hashedPassword = await bcrypt.hash(password);
+        const hashedPassword = bcrypt.hashSync(password,salt);
 
-        const leader = { name, password: hashedPassword, email, adress, number }
-
-        Leader.create({leader})
-
-        console.log(leader);
-
-        const result = await leader.save()
+        // console.log('hashedPassword',hashedPassword,bcrypt.compareSync(password,hashedPassword))
+        const user = await User.create( { name, password: hashedPassword, email, adress, number })
+        
+        const result = await user.save()
 
         res.status(200).send(result)
         
@@ -34,15 +33,15 @@ const signUp = async (req, res)=> {
 const login = async (req, res) =>{
 
     const { email, password} = req.body
-
-    const user = await Leader.findOne(email);
-
+    
+    const user = await User.findOne({email});
+    
     if (!user) return res.status(400).send(`Email Incorrect / Not Found! Please Register First.`);
-
-    const validPassowrd = await bcrypt.compareSync(password)
-
+    
+    const validPassowrd = bcrypt.compare(password, user.password)
+    
     if (!validPassowrd) return res.status(400).send('Password incorrect')
-
+    
     const token = jwt.sign({ _id: user._id }, 'secret');
 
     res.status(200).json({ status: 'success', token });
