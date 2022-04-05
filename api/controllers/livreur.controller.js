@@ -1,4 +1,4 @@
-const {User} = require('../models/user.model')
+const { User } = require('../models/user.model')
 
 
 const add_new_Delivery_man = async (req, res) => {
