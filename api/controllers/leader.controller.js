@@ -3,8 +3,15 @@ const {User} = require('../models/user.model')
 
 const add_new_chefSecteur = async (req, res) => {
     try {
-
-        const newLeader = await User.create(req.body)
+        const { name, password, email, role, adress, number } = req.body
+        
+        const newLeader = await User.create({ name, password, email, adress, number,
+            role: role === 'admin' ? {
+            name: role,
+            status: false
+        } : {
+            name: role
+        }})
 
         const result = await newLeader.save()
 
