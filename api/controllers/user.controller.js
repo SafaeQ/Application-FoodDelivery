@@ -1,4 +1,4 @@
-const {User} = require('../models/User.model')
+const {User} = require('../models/user.model')
 
 const bcrypt = require('bcryptjs')
 
@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 
 const signUp = async (req, res)=> {
     try {
-        const {name, email, adress, number, password} = req.body
+        const {name, email, adress, number, password, role} = req.body
         
         const emailExist = await User.findOne({ email: req.body.email });
 
@@ -18,7 +18,13 @@ const signUp = async (req, res)=> {
         const hashedPassword = bcrypt.hashSync(password,salt);
 
         // console.log('hashedPassword',hashedPassword,bcrypt.compareSync(password,hashedPassword))
-        const user = await User.create( { name, password: hashedPassword, email, adress, number })
+        const user = await User.create( { name, password: hashedPassword, email, adress, number,
+                role: role === 'admin' ? {
+                name: role,
+                status: false
+            } : {
+                name: role
+            }})
         
         const result = await user.save()
 

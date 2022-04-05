@@ -1,5 +1,17 @@
 const mongoose = require('mongoose')
 
+const RoleSchema = new mongoose.Schema({
+  name: {
+      type: String,
+      required: true,
+      enum: ['admin', 'leader', 'delivery_man', 'client']
+  },
+  status: {
+      type: Boolean
+  }
+});
+
+
 const User = mongoose.model(
     'User',
     new mongoose.Schema({
@@ -22,6 +34,7 @@ const User = mongoose.model(
           number: {
             type: Number,
           },
+          role: RoleSchema
         },
         {
           timestamps: true,
