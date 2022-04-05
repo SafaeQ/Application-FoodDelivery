@@ -7,7 +7,7 @@ const isAuthorized = require('../middlewares/permission')
 const checkAuthentication = require('../middlewares/auth')
 
 
-
+// # CRUD restaurant
     restaurantRouter.post('/add-restaurant',checkAuthentication, isAuthorized('leader'), add_restaurant)
 
     restaurantRouter.get('/all', getAll_restaurant)
