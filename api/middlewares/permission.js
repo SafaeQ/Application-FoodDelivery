@@ -2,7 +2,7 @@ const isAuthorized = (...role) => {
 
     return (req, res, next) => {
 
-        console.log("role ", req.user.role.name)
+        // console.log("role ", req.user.role.name)
 
         if (!role.includes(req.user.role.name)) {
 
