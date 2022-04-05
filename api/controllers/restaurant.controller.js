@@ -21,7 +21,7 @@ const getAll_restaurant = async (req, res) => {
             
         const restaurant = await Restaurant.find({})
 
-        if(restaurant === {}) return res.send('there is no restaurant')
+        // if(restaurant === 0) return res.send('there is no restaurant')
 
         res.status(200).send(restaurant)
 

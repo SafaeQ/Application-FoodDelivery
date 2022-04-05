@@ -5,8 +5,6 @@ const getAll_Repast = async (req, res) => {
     try {
         const repast = await Repast.find({})
 
-        repast.catch((err) => {throw err})
-
         res.status(200).send(repast)
 
     } catch (error) {
