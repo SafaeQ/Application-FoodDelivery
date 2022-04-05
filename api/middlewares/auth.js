@@ -1,18 +1,25 @@
-// const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken')
 
+const checkAuthentication = async (req, res, next) => {
 
-// export default (req, res, next) => {
-//   const token = req.body.token || req.headers['x-access-token'];
+    const authHeader = req.headers["authorization"];
 
-//   if (token) {
-//     jwt.verify(token, 'secret', (err, decoded) => {
-//       if (err) {
-//         return res.status(401).json({ status: 'error', message: 'authentication failed' });
-//       }
-//       req.auth = decoded;
-//       next();
-//     });
-//   } else {
-//     return res.status(401).send({ status: 'error', message: 'No token provided.' });
-//   }
-// }
+    if (!authHeader) return res.sendStatus(401);
+
+    const token = authHeader.split(" ")[1];
+
+    if (!token) return res.sendStatus(401);
+
+    jwt.verify(token, 'secret', (err, decoded) => {
+
+        if (err) return res.sendStatus(403);
+
+        console.log("decoded", decoded);
+
+        req.user = decoded; // {id:?,role:?}
+
+        next();
+    });
+}
+
+module.exports = checkAuthentication
