@@ -1,6 +1,4 @@
-const express = require('express')
-
-const leaderRouter = express.Router()
+const leaderRouter = require('express').Router()
 
 const { add_new_chefSecteur, delete_chefSecteur } = require('../controllers/leader.controller')
 

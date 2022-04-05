@@ -1,6 +1,4 @@
-const express = require('express')
-
-const restaurantRouter = express.Router()
+const restaurantRouter = require('express').Router()
 
 const { add_restaurant, getAll_restaurant, delete_restaurant } = require('../controllers/restaurant.controller')
 
