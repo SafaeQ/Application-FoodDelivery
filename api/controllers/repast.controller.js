@@ -27,4 +27,18 @@ const add_Repast = async (req,res) => {
     }
 }
 
-module.exports = { getAll_Repast, add_Repast }
+const delete_repast = async (req, res) => {
+    try {
+        const id = req.params.id
+
+        const repast = await Repast.findOneAndRemove(id)
+
+        res.status(200).send('Repast has been deleted')
+        
+    } catch (error) {
+
+        res.status(404).send(error)
+    }
+}
+
+module.exports = { getAll_Repast, add_Repast, delete_repast }
