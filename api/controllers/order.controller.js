@@ -21,7 +21,7 @@ const createOrder = async (req, res) => {
 
     const { user, name, qty, price, food } = req.body
 
-    if (!qty && !food ){
+    if (!user && !food ){
         
         res.status(404).send('No items found')
 
