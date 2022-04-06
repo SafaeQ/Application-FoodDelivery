@@ -1,18 +1,17 @@
 const { Order } = require('../models/order.model')
-const { create } = require('../models/restaurant.model')
 
 
 const getUserOrders = async (req, res) => {
 
-    if (req.user) {
+    try {
 
-        const orders = await Order.find({ user: req.user._id }).sort('-createdAt')
+        const orders = await Order.find({}).sort('-createdAt')
 
         orders ? res.json(orders) : res.status(404).send('Order Not Found')
 
-    }else {
+    }catch (error) {
 
-        res.status(404)
+        res.status(404).send(error)
 
         throw new Error('No User Found')
     }
@@ -20,16 +19,17 @@ const getUserOrders = async (req, res) => {
 
 const createOrder = async (req, res) => {
 
-    const { orderItems, shippingAdress, shippingPrice, phoneNumber, totalPrice } = req.body
+    const { user, name, qty, price, food } = req.body
 
-    if (orderItems && orderItems.length === 0 ){
+    if (!qty && !food ){
         
         res.status(404).send('No items found')
+
     }else {
 
-        const order = new Order({ user: req.user._id, orderItems, shippingAdress, shippingPrice, phoneNumber, totalPrice })
+        const order = new Order({ user, name, qty, price, food })
 
-        const createdOrder = await create(order)
+        const createdOrder = await Order.create(order)
 
         res.status(200).json(createdOrder)
 

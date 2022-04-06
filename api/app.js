@@ -16,6 +16,8 @@ const livreurRouter = require('./routes/livreur.routes')
 
 const restaurantRouter = require('./routes/restaurant.routes')
 
+const orderRouter = require('./routes/order.routes')
+
 const repastRouter = require('./routes/repast.routes')
 
 const router = require('./routes/routes')
@@ -46,6 +48,8 @@ app.use('/api', livreurRouter)
 app.use('/restaurant', restaurantRouter)
 
 app.use('/repast', repastRouter)
+
+app.use('/user', orderRouter)
 
 
 //# running the server
