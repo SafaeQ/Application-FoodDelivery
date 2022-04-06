@@ -22,7 +22,7 @@ const repastSchema = new Schema(
         required: true,
         lowercase: true,
         trim: true,
-        ref: Category
+        ref: "Category"
     },
     description: { 
         type: String,
@@ -35,7 +35,7 @@ const repastSchema = new Schema(
       required: true,
       lowercase: true,
       trim: true,
-      ref: Restaurant
+      ref: "Restaurant"
     },
     rating: {
       type: Number,
