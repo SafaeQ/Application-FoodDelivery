@@ -3,7 +3,7 @@ const Repast = require('../models/repast.model')
 
 const getAll_Repast = async (req, res) => {
     try {
-        const repast = await Repast.find({}).populate('Category')
+        const repast = await Repast.find({})//.populate('Category')
 
         res.status(200).send(repast)
 

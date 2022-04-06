@@ -31,9 +31,8 @@ const repastSchema = new Schema(
         trim: true
     },
     restaurant: { 
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
-      lowercase: true,
       trim: true,
       ref: "Restaurant"
     },

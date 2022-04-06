@@ -25,6 +25,11 @@ const categorySchema = new Schema(
         type: Boolean,
         default: true
         },
+    repast: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'Repast'
+    }
   },
   {
     timestamps: true,
