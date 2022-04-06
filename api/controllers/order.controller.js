@@ -5,7 +5,7 @@ const getUserOrders = async (req, res) => {
 
     try {
 
-        const orders = await Order.find({}).sort('-createdAt')
+        const orders = await Order.find({}).sort('-createdAt').populate('user').populate('food')
 
         orders ? res.json(orders) : res.status(404).send('Order Not Found')
 
@@ -38,7 +38,7 @@ const createOrder = async (req, res) => {
 
 const getOrderById = async (req, res) => {
     try{
-        const order = await Order.find({  id: req.params.id })
+        const order = await Order.find({  id: req.params.id }).populate('user').populate('food')
 
         res.status(200).send(order)
 
