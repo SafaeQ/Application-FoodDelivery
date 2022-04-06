@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Category = require("./category.model");
+const Restaurant = require('./restaurant.model')
 
 const Schema = mongoose.Schema;
 
@@ -20,7 +21,8 @@ const repastSchema = new Schema(
         type: String,
         required: true,
         lowercase: true,
-        trim: true
+        trim: true,
+        ref: Category
     },
     description: { 
         type: String,
@@ -28,9 +30,17 @@ const repastSchema = new Schema(
         lowercase: true,
         trim: true
     },
-    // image: { type: String,
-    //     trim: true
-    // },
+    restaurant: { 
+      type: String,
+      required: true,
+      lowercase: true,
+      trim: true,
+      ref: Restaurant
+    },
+    rating: {
+      type: Number,
+      default: 0,
+    },  
   },
   {
     timestamps: true,
