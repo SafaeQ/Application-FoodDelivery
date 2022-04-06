@@ -19,7 +19,7 @@ const add_restaurant = async (req, res, next) => {
 const getAll_restaurant = async (req, res) => {
     try {
             
-        const restaurant = await Restaurant.find({})
+        const restaurant = await Restaurant.find({}).populate('Repast')
 
         // if(restaurant === 0) return res.send('there is no restaurant')
 
