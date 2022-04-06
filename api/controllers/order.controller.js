@@ -36,4 +36,17 @@ const createOrder = async (req, res) => {
     }
 }
 
-module.exports = { getUserOrders, createOrder }
+const getOrderById = async (req, res) => {
+    try{
+        const order = await Order.find({  id: req.params.id })
+
+        res.status(200).send(order)
+
+    } catch (error) {
+
+        res.status(404).send(error)
+    }
+}
+
+
+module.exports = { getUserOrders, createOrder, getOrderById }
