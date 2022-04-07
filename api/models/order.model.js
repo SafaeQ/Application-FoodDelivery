@@ -37,10 +37,10 @@ const orderSchema = new Schema(
         deliveredAt: {
           type: Date,
         },
-      },
-      {
+    },
+    {
         timestamps: true,
-      }
+    }
 );
 
 
