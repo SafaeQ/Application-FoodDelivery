@@ -2,8 +2,12 @@ const orderRouter = require('express').Router()
 
 const { getUserOrders, createOrder, getOrderById } = require('../controllers/order.controller')
 
+const isAuthorized = require('../middlewares/permission')
 
-    orderRouter.post('/order', createOrder )
+const checkAuthentication = require('../middlewares/auth')
+
+
+    orderRouter.post('/order',checkAuthentication, isAuthorized('client'), createOrder )
 
     orderRouter.get('/orders', getUserOrders)
 

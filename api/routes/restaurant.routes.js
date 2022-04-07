@@ -12,7 +12,7 @@ const checkAuthentication = require('../middlewares/auth')
 
     restaurantRouter.get('/all', getAll_restaurant)
 
-    restaurantRouter.delete('/delete-restaurant/:id', delete_restaurant)
+    restaurantRouter.delete('/delete-restaurant/:id',checkAuthentication, isAuthorized('leader'), delete_restaurant)
 
 
 module.exports = restaurantRouter
