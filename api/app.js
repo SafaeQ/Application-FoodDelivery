@@ -2,8 +2,6 @@ const express = require('express');
 
 const bodyParser = require('body-parser');
 
-const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
-
 require('dotenv').config()
 
 const cors = require('cors')
