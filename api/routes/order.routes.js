@@ -16,7 +16,7 @@ const checkAuthentication = require('../middlewares/auth')
     orderRouter.get('/order/:id', getOrderById)
 
     // # payment  
-    orderRouter.post('/create-payment', create_payment)
+    orderRouter.post('/create-payment', checkAuthentication, create_payment)
 
     
 
