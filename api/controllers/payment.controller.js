@@ -8,6 +8,7 @@ const create_payment = async (req, res) => {
         
         const client = await stripe.paymentIntents.create({
 
+            user: req.user._id,
             amount: 2000,
             currency: 'usd',
             payment_method_types: ['card'],
