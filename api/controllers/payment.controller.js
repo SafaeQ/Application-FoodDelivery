@@ -15,11 +15,9 @@ const create_payment = async (req, res) => {
                 exp_month: 4,
                 exp_year: 2023,
                 cvc: '314',
-            
-
+            }
         })
-
-
+        
     } catch (error) {
 
         res.status(500).json({ error: error.message })
