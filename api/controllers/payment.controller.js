@@ -2,23 +2,17 @@ require('dotenv').config()
 
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
 
-const {User} = require('../models/user.model')
 
 const create_payment = async (req, res) => {
     try {
         
-        const client = await stripe.paymentMethods.create({
-            
-            payment_methods_types : 'card',
-            mode: 'payment',
-            card: {
-                number: '4242424242424242',
-                exp_month: 4,
-                exp_year: 2023,
-                cvc: '314',
-            }
-        })
+        const client = await stripe.paymentIntents.create({
 
+            amount: 2000,
+            currency: 'usd',
+            payment_method_types: ['card'],
+        })
+        
         return res.status(200).send(client)
 
     } catch (error) {
