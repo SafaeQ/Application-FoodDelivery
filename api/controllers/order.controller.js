@@ -48,5 +48,20 @@ const getOrderById = async (req, res) => {
     }
 }
 
+const getOrderForDelivery = async (req, res) => {
+    try {
+        const userId = req.body.id
+
+        const foodId ={_id :mongoose.Types.ObjectId(id)}
+
+        let params = { foodId }
+
+        User.findOne(params, {$inc : {'quantity' : 1}}, { new: true }).then((results) => { console.log(results)})
+    
+    } catch (error) {
+
+        res.send(error)
+    }
+}
 
 module.exports = { getUserOrders, createOrder, getOrderById }

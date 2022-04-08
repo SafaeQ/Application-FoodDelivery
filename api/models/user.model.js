@@ -34,7 +34,16 @@ const User = mongoose.model(
           number: {
             type: Number,
           },
-          role: RoleSchema
+          role: RoleSchema,
+          card: [
+            quantity = {
+              type: Number
+            },
+            foodId = {
+              type: mongoose.Schema.Types.ObjectId,
+              ref: 'Repast'
+            }
+          ]
         },
         {
           timestamps: true,
