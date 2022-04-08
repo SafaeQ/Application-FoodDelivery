@@ -2,6 +2,8 @@ const orderRouter = require('express').Router()
 
 const { getUserOrders, createOrder, getOrderById } = require('../controllers/order.controller')
 
+const create_payment = require('../controllers/payment.controller')
+
 const isAuthorized = require('../middlewares/permission')
 
 const checkAuthentication = require('../middlewares/auth')
@@ -12,6 +14,10 @@ const checkAuthentication = require('../middlewares/auth')
     orderRouter.get('/orders', getUserOrders)
 
     orderRouter.get('/order/:id', getOrderById)
+
+    // # payment  
+    orderRouter.post('/create-payment', create_payment)
+
     
 
 module.exports = orderRouter
