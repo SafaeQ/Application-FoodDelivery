@@ -17,9 +17,13 @@ const create_payment = async (req, res) => {
                 cvc: '314',
             }
         })
-        
+
+        if (client) return res.status(200).send(client)
+
     } catch (error) {
 
         res.status(500).json({ error: error.message })
     }
 }
+
+module.exports = create_payment
