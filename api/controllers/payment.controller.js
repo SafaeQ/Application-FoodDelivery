@@ -8,6 +8,7 @@ const create_payment = async (req, res) => {
     try {
         
         const client = await stripe.paymentMethods.create({
+            
             payment_methods_types : 'card',
             mode: 'payment',
             card: {
@@ -18,7 +19,7 @@ const create_payment = async (req, res) => {
             }
         })
 
-        if (client) return res.status(200).send(client)
+        return res.status(200).send(client)
 
     } catch (error) {
 
