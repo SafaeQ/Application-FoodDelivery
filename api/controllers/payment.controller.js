@@ -12,7 +12,6 @@ const create_payment = async (req, res) => {
             currency: 'usd',
             payment_method_types: ['card'],
         })
-        
         return res.status(200).send(client)
 
     } catch (error) {
