@@ -1,7 +1,5 @@
 import React from 'react'
-import '../css/navbar.css'
 import {Link} from 'react-router-dom';
-import OfferModal from './OfferModal';
 
 const Navbar = () => {
   
@@ -50,7 +48,7 @@ const Navbar = () => {
          </div>
         </div>
       </div>
-      <OfferModal/>
+      {/* <OfferModal/> */}
       </>
     )
 }
