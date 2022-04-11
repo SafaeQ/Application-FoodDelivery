@@ -19,6 +19,9 @@ const DashboardDelevery = () => {
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
+            <th scope="col">Adress</th>
+            <th scope="col">Number</th>
+            <th scope="col">Password</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -26,6 +29,9 @@ const DashboardDelevery = () => {
           <tr>
             <th scope="row">1</th>
             <td>Mark</td>
+            <td>Otto</td>
+            <td>Otto</td>
+            <td>Otto</td>
             <td>Otto</td>
             <td>
               <a className="btn btn-outline-primary">Edit</a>
