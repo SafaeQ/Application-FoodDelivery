@@ -5,7 +5,7 @@ const DashboardDelevery = () => {
     <>
       <div class="container">
       <h1 className="text-center">Delevery Men</h1>
-     
+
       <div class="container h-100" >
 
       <div class="row justify-content-center h-100">
