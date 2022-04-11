@@ -1,16 +1,20 @@
 import Navbar from './components/NavBar/NavBar';
-import Dashboard from './pages/DashboardDelevery';
-import { Router, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import Login from './pages/Login'
+import Register from './pages/register'
 
 function App() {
   return (
     <>
-    <Router>      
-        <Route path='/' render={<Home />} />      
-    </Router>
-    <Navbar/>
-    <Dashboard />
+    <Navbar />
+    <Routes>      
+        <Route path='/' element={<Home />} />      
+        <Route path='/login' element={<Login />} />      
+        <Route path='/register' element={<Register />} />      
+    </Routes>
+    {/* <Navbar/>
+    <Dashboard /> */}
     </>
   );
 }

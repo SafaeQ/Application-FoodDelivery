@@ -27,12 +27,12 @@ const navBar = () => {
           <NavLink to='/contact-us'>
             Contact Us
           </NavLink>
-          <NavLink to='/sign-up'>
+          <NavLink to='/register'>
             Sign Up
           </NavLink>
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to='/signin'>Sign In</NavBtnLink>
+          <NavBtnLink to='/login'>log In</NavBtnLink>
         </NavBtn>
       </Nav>
     </>
