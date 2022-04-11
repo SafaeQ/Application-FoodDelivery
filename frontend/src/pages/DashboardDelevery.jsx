@@ -1,19 +1,16 @@
-import React from "react";
-
 import React from 'react';
 
-const DashboardLeader = () => {
+const DashboardDelevery = () => {
   return (
     <>
-      
       <div class="container">
-      <h1 className="text-center">Leaders</h1>
+      <h1 className="text-center">Delevery Men</h1>
      
       <div class="container h-100" >
 
       <div class="row justify-content-center h-100">
       <div class="col-md-8">
-      <button type="button" class="btn btn-outline-success">Add leader</button>
+      <button type="button" class="btn btn-outline-success">Add Delevery man</button>
       <br/>
       <br/>
             <table class="table table-striped table-dark table-hover" >
@@ -45,4 +42,4 @@ const DashboardLeader = () => {
   );
 }
 
-export default DashboardLeader;
+export default DashboardDelevery;
