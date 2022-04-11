@@ -15,12 +15,12 @@ const Register = () => {
             <label htmlFor="password" className="form-label m-2 h5">Password</label>
             <input type="password" name="psd" placeholder="Password" className="form-control"  required/></div>
             <label htmlFor="address" className="form-label m-2 h5">Address</label>
-                <textarea type="text" name="addr" placeholder="Address" className="form-control"  required/></div>
-                <button className="btn btn-primary my-3 h4">Sign Up</button>
-                <div className="h5 text-center" ></div>
-                <hr/>
-                <span>Already have an account?  |  <Link to="/login">Sign in</Link></span>              
-                </div>
+            <textarea type="text" name="addr" placeholder="Address" className="form-control"  required/></div>
+            <button className="btn btn-primary my-3 h4">Sign Up</button>
+            <div className="h5 text-center" ></div>
+            <hr/>
+            <span>Already have an account?  |  <Link to="/login">Sign in</Link></span>              
+            </div>
                 
         </form>
     </>
