@@ -5,9 +5,9 @@ const Register = () => {
   return (
     <>
       <form className="form1" >
-                    <h2>Register Form</h2><br/>
-                    <div className="d-flex flex-column">
-                    <div className="form-group">
+            <h2>Register Form</h2><br/>
+            <div className="d-flex flex-column">
+            <div className="form-group">
             <div className="form-group">
             <label htmlFor="email" className="form-label m-2 h5">Email</label>
             <input type="email" name="mail" placeholder="Email" className="form-control"  required/></div>
