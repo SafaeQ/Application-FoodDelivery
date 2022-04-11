@@ -21,7 +21,6 @@ const Register = () => {
             <hr/>
             <span>Already have an account?  |  <Link to="/login">Sign in</Link></span>              
             </div>
-                
         </form>
     </>
   );
