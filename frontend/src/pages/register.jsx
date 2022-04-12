@@ -18,17 +18,15 @@ const Register = () => {
     const {name, email, password, adress, number, role} = user
 
     console.log('clicked');
-    if (name=== '' || email === '' || password === '' || adress === '' || number === '' || role) {
+    if (name === '' || email === '' || password === '' || adress === '' || number === '' || role) {
       setError(true)
     }else {
-
       const response = axios.post('http://localhost:9988/auth/signup',user)
+      console.log(response);
       console.log(user);
       // window.location.href = ('/login')
     }
   }
-
-
   return (
     <>
       <form className="form1" onSubmit={handleSubmit}>
