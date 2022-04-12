@@ -23,6 +23,7 @@ const Register = () => {
       setError(true)
 
     }else {
+      
       const response = axios.post('http://localhost:9988/auth/signup',user)
       console.log(user);
       // window.location.href = ('/login')
