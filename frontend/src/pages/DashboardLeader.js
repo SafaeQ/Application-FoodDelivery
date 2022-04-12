@@ -27,6 +27,12 @@ const DashboardLeader = (props) => {
     setLeaders(newList)
   }
 
+  const handleAddButton = (e)=>{
+    e.preventDefault();
+    console.log('hhhh')
+    window.location.href = '/add-leader'
+  }
+
   useEffect(()=>{
       fetchData()
   },[])
@@ -37,11 +43,11 @@ const DashboardLeader = (props) => {
       <div className="container">
       <h1 className="text-center">Leaders</h1>
      
-      <div className="container h-100" >
+      <div className="container h-100">
 
       <div className="row justify-content-center h-100">
       <div className="col-md-12">
-      <button type="button" className="btn btn-outline-success">Add leader</button>
+      <button type="button" className="btn btn-outline-success" onClick={handleAddButton}>Add leader</button>
       <br/>
       <br/>
       <table className="table table-striped table-dark table-hover" >

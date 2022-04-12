@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import Register from './pages/register'
 import DashboardDelevery from './pages/DashboardDelevery'
 import DashboardLeader from './pages/DashboardLeader';
+import AddLeader from './pages/AddLeader';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/register' element={<Register />} />      
         <Route path='/dashboard-livereur' element={<DashboardDelevery />} />      
         <Route path='/dashboard-leaders' element={<DashboardLeader />} />      
+        <Route path='/add-leader' element={<AddLeader />} />      
     </Routes>
     </>
   );
