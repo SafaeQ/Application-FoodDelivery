@@ -1,10 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const Register = () => {
+  const [user, setUser] = useState([]);
+  
+  const handleChange = (event) => {
+    const {name, value} = event.target
+    setUser({...user, [name]: value})
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('clicked');
+    const {name, email, password, adress, number} = user
+  }
+
   return (
     <>
-      <form className="form1" >
+      <form className="form1" onSubmit={handleSubmit}>
             <h2>Register Form</h2><br/>
             <div className="d-flex flex-column">
             <div className="form-group">
