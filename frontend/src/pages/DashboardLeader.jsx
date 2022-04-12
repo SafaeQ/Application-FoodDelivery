@@ -1,8 +1,24 @@
 import React from "react";
 
-import React from 'react';
-
 const DashboardLeader = () => {
+
+  const [leaders, setLeaders] = useState([]);
+
+  const fetchData = ()=>{
+    axios
+        .get('http://localhost:9988/api/livreurs')
+        .then(response =>{
+          setLeaders(response.data)
+        })
+        .catch(error => {
+            console.log({error});
+        })
+}
+
+  useEffect(()=>{
+      fetchData()
+  },[])
+
   return (
     <>
       
@@ -16,25 +32,39 @@ const DashboardLeader = () => {
       <button type="button" class="btn btn-outline-success">Add leader</button>
       <br/>
       <br/>
-            <table class="table table-striped table-dark table-hover" >
-        <thead class="thead-dark">
+      <table className="table table-striped table-dark table-hover" >
+        <thead className="thead-dark">
           <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
+            <th scope="col">Adress</th>
+            <th scope="col">Number</th>
+            <th scope="col">Password</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
+        {leaders.length > 0 ? (
+          leaders.map((leader, i ) => (
+            <tr key={i}>
+            <th scope="row"> {leader._id} </th>
+            <td> {leader.name} </td>
+            <td>{leader.email}</td>
+            <td>{leader.adress}</td>
+            <td>{leader.number}</td>
+            <td>{leader.password} </td>
             <td>
               <a className="btn btn-outline-primary">Edit</a>
               <a className="btn btn-outline-danger">Delete</a>
             </td>
           </tr>
+          ))
+        ): (
+          <tr>
+            <td> NOthing here </td>
+          </tr>
+        )}
         </tbody>
       </table>
       </div>
