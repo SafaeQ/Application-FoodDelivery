@@ -5,7 +5,7 @@ const getLeaders = async (req, res) => {
 
     try {
 
-        const leaders = await User.find({}).sort('-createdAt')
+        const leaders = await User.find({})
         leaders ? res.json(leaders) : res.status(404).send('leader Not Found')
 
     }catch (error) {

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import api from "../components/api";
 
 const DashboardLeader = (props) => {
 
@@ -16,16 +17,14 @@ const DashboardLeader = (props) => {
             console.log({error});
         })
 }
-  const deleteUser = (_id) => {
-    console.log(_id)
-    axios
-      .delete(`http://localhost:9988/api/delete-leader/${_id}`)
-      .then(()=> {
-        setLeaders(leaders.filter(leader => leader._id !== _id))
-      })
-      .catch(e => {
-        console.log({e});
-      })
+
+  const deleteUser = async (id) => {
+    console.log(id)
+    await api.delete(`api/delete-leader/${id}`)
+    const newList = leaders.filter((leader)=> {
+      return leader.id !== id
+    })
+    setLeaders(newList)
   }
 
   useEffect(()=>{
@@ -68,7 +67,6 @@ const DashboardLeader = (props) => {
             <td>{leader.number}</td>
             <td>{leader.password} </td>
             <td>
-              <a className="btn btn-outline-primary">Edit</a>
               <a className="btn btn-outline-danger" onClick={() => deleteUser(leader._id)}>Delete</a>
             </td>
           </tr>
