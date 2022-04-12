@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const DashboardLeader = () => {
+const DashboardLeader = (props) => {
 
   const [leaders, setLeaders] = useState([]);
 
@@ -16,6 +16,17 @@ const DashboardLeader = () => {
             console.log({error});
         })
 }
+  const deleteUser = (_id) => {
+    console.log(_id)
+    axios
+      .delete(`http://localhost:9988/api/delete-leader/${_id}`)
+      .then(()=> {
+        setLeaders(leaders.filter(leader => leader._id !== _id))
+      })
+      .catch(e => {
+        console.log({e});
+      })
+  }
 
   useEffect(()=>{
       fetchData()
@@ -24,14 +35,14 @@ const DashboardLeader = () => {
   return (
     <>
       
-      <div class="container">
+      <div className="container">
       <h1 className="text-center">Leaders</h1>
      
-      <div class="container h-100" >
+      <div className="container h-100" >
 
-      <div class="row justify-content-center h-100">
-      <div class="col-md-12">
-      <button type="button" class="btn btn-outline-success">Add leader</button>
+      <div className="row justify-content-center h-100">
+      <div className="col-md-12">
+      <button type="button" className="btn btn-outline-success">Add leader</button>
       <br/>
       <br/>
       <table className="table table-striped table-dark table-hover" >
@@ -58,7 +69,7 @@ const DashboardLeader = () => {
             <td>{leader.password} </td>
             <td>
               <a className="btn btn-outline-primary">Edit</a>
-              <a className="btn btn-outline-danger">Delete</a>
+              <a className="btn btn-outline-danger" onClick={() => deleteUser(leader._id)}>Delete</a>
             </td>
           </tr>
           ))
