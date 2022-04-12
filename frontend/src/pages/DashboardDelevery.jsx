@@ -1,13 +1,15 @@
 import React from 'react';
+import axios from 'axios'
+import {useState, useEffect} from 'react'
 
 const DashboardDelevery = () => {
-  const [user, setUser] = useState([])
+  const [users, setUsers] = useState([])
 
     const fetchData = ()=>{
         axios
-            .get('http://localhost:9988/auth/signup')
+            .get('http://localhost:9988/api/livreurs')
             .then(response =>{
-            setRooms(response.data)
+            setUsers(response.data)
             })
             .catch(error => {
                 console.log({error});
@@ -20,18 +22,18 @@ const DashboardDelevery = () => {
 
   return (
     <>
-      <div class="container">
+      <div className="container">
       <h1 className="text-center">Delevery Men</h1>
 
-      <div class="container h-100" >
+      <div className="container h-100" >
 
-      <div class="row justify-content-center h-100">
-      <div class="col-md-8">
-      <button type="button" class="btn btn-outline-success">Add Delevery man</button>
+      <div className="row justify-content-center h-100">
+      <div className="col-md-8">
+      <button type="button" className="btn btn-outline-success">Add Delevery man</button>
       <br/>
       <br/>
-            <table class="table table-striped table-dark table-hover" >
-        <thead class="thead-dark">
+        <table className="table table-striped table-dark table-hover" >
+        <thead className="thead-dark">
           <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
@@ -43,18 +45,26 @@ const DashboardDelevery = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Otto</td>
-            <td>Otto</td>
-            <td>Otto</td>
+        {users.length > 0 ? (
+          users.map((user, i ) => (
+            <tr >
+            <th key={i} scope="row">1</th>
+            <td> {user.name} </td>
+            <td>{user.email}</td>
+            <td>{user.adress}</td>
+            <td>{user.number}</td>
+            <td>{user.password} </td>
             <td>
               <a className="btn btn-outline-primary">Edit</a>
               <a className="btn btn-outline-danger">Delete</a>
             </td>
           </tr>
+          ))
+        ): (
+          <tr>
+            <td> NOthing here </td>
+          </tr>
+        )}
         </tbody>
       </table>
       </div>
