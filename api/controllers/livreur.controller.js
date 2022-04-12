@@ -1,5 +1,21 @@
 const { User } = require('../models/user.model')
 
+const getUser = async (req, res) => {
+
+    try {
+
+        const users = await User.find({}).sort('-createdAt')
+
+        users ? res.json(users) : res.status(404).send('user Not Found')
+
+    }catch (error) {
+
+        res.status(404).send(error)
+
+        throw new Error('No User Found')
+    }
+}
+
 
 const add_new_Delivery_man = async (req, res) => {
     try {

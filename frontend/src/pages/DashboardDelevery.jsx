@@ -1,6 +1,23 @@
 import React from 'react';
 
 const DashboardDelevery = () => {
+  const [user, setUser] = useState([])
+
+    const fetchData = ()=>{
+        axios
+            .get('http://localhost:9988/auth/signup')
+            .then(response =>{
+            setRooms(response.data)
+            })
+            .catch(error => {
+                console.log({error});
+            })
+    }
+
+    useEffect(()=>{
+        fetchData()
+    },[])
+
   return (
     <>
       <div class="container">
