@@ -60,7 +60,7 @@ const DashboardLeader = (props) => {
         {leaders.length > 0 ? (
           leaders.map((leader, i ) => (
             <tr key={i}>
-            <th scope="row"> {leader._id} </th>
+            <th scope="row"> {leader.id} </th>
             <td> {leader.name} </td>
             <td>{leader.email}</td>
             <td>{leader.adress}</td>
