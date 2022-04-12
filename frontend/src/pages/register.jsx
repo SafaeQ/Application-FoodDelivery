@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import axios from 'axios'
 
 const Register = () => {
   const [user, setUser] = useState([]);
+  const [error, setError] = useState(false);
   
   const handleChange = (event) => {
     const {name, value} = event.target
@@ -12,8 +14,19 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
     console.log('clicked');
-    const {name, email, password, adress, number} = user
+
+    const {name, email, password, adress, number, role} = user
+
+    if (name=== '' || email === '' || password === '' || adress === '' || number === '' || role) {
+
+      setError(true)
+
+    }else {
+      axios.post('http://localhost:8000/auth/signup',user)
+            .then(res => console.log( 'dddd',res))
+    }
   }
 
   return (
