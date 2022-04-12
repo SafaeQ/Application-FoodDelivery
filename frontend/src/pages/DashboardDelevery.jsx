@@ -28,7 +28,7 @@ const DashboardDelevery = () => {
       <div className="container h-100" >
 
       <div className="row justify-content-center h-100">
-      <div className="col-md-8">
+      <div className="col-md-12">
       <button type="button" className="btn btn-outline-success">Add Delevery man</button>
       <br/>
       <br/>
@@ -47,8 +47,8 @@ const DashboardDelevery = () => {
         <tbody>
         {users.length > 0 ? (
           users.map((user, i ) => (
-            <tr >
-            <th key={i} scope="row">1</th>
+            <tr key={i}>
+            <th scope="row"> {user._id} </th>
             <td> {user.name} </td>
             <td>{user.email}</td>
             <td>{user.adress}</td>
