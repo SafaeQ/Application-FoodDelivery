@@ -1,4 +1,6 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const DashboardLeader = () => {
 
@@ -6,7 +8,7 @@ const DashboardLeader = () => {
 
   const fetchData = ()=>{
     axios
-        .get('http://localhost:9988/api/livreurs')
+        .get('http://localhost:9988/api/leaders')
         .then(response =>{
           setLeaders(response.data)
         })
@@ -28,7 +30,7 @@ const DashboardLeader = () => {
       <div class="container h-100" >
 
       <div class="row justify-content-center h-100">
-      <div class="col-md-8">
+      <div class="col-md-12">
       <button type="button" class="btn btn-outline-success">Add leader</button>
       <br/>
       <br/>

@@ -1,6 +1,21 @@
 const {User} = require('../models/user.model')
 
 
+const getLeaders = async (req, res) => {
+
+    try {
+
+        const leaders = await User.find({}).sort('-createdAt')
+        leaders ? res.json(leaders) : res.status(404).send('leader Not Found')
+
+    }catch (error) {
+
+        res.status(404).send(error)
+
+        throw new Error('No User Found')
+    }
+}
+
 const add_new_chefSecteur = async (req, res) => {
     try {
         const { name, password, email, role, adress, number } = req.body
@@ -41,5 +56,5 @@ const delete_chefSecteur = async (req, res) => {
 }
 
 module.exports = {
-    add_new_chefSecteur, delete_chefSecteur
+    add_new_chefSecteur, delete_chefSecteur, getLeaders
 }
