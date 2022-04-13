@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios'
 import {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom';
 
 const DashboardDelevery = () => {
 
@@ -30,7 +31,8 @@ const DashboardDelevery = () => {
 
       <div className="row justify-content-center h-100">
       <div className="col-md-12">
-      <button type="button" className="btn btn-outline-success">Add Delevery man</button>
+      
+      <Link to="/add-livreur"> <button type="button" className="btn btn-outline-success">Add Delevery man</button> </Link>
       <br/>
       <br/>
         <table className="table table-striped table-dark table-hover" >
