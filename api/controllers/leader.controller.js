@@ -4,8 +4,8 @@ const {User} = require('../models/user.model')
 const getLeaders = async (req, res) => {
 
     try {
-
         const leaders = await User.find({ 'role.name': { $gte: 'leader' } })
+
         leaders ? res.json(leaders) : res.status(404).send('leader Not Found')
 
     }catch (error) {
