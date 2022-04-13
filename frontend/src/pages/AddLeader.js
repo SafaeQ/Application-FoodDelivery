@@ -18,7 +18,7 @@ export default class CreateUser extends Component {
               password: '', 
               number: '',
               adress: '',
-              role: ''
+              role: 'leader'
           }
       }
       onChangeUserName(e) {
@@ -49,13 +49,14 @@ export default class CreateUser extends Component {
               adress: this.state.adress,
               role: this.state.role
           };
-        api.post('api/add-leader', userObject)
+          
+        api.post('/api/add-leader', userObject)
               .then((res) => {
                   console.log(res.data)
               }).catch((error) => {
                   console.log(error)
               });
-          this.setState({ name: '', email: '', password:'', number:'', adress:'', role:'' })
+          this.setState({ name: '', email: '', password:'', number:'', adress:'', role:'leader' })
       }
   render(h) {
 
