@@ -57,11 +57,23 @@ export default class CreateUser extends Component {
                   console.log(error)
               });
           this.setState({ name: '', email: '', password:'', number:'', adress:'', role:'leader' })
+
+        if (userObject ) {
+            alert('field the input first')
+        }else {
+          window.location.href = '/dashboard-leaders'
+        }
       }
-  render(h) {
+
+  render() {
 
   return (
     <>
+      <div className="container">
+      <h1 className="text-center"> ADD Leader</h1>
+        <div className="container h-100">
+    <div className="row justify-content-center h-100">
+    <div className="col-md-6">
       <form onSubmit={this.onSubmit} className="wrapper">
         <div className="form-group">
         <label>
@@ -96,12 +108,16 @@ export default class CreateUser extends Component {
         <div className="form-group">
         <label>
         Role:
-        <input type="role" name='role' value={this.state.role} onChange={this.onChangeUserRole} className="form-control"/>
+        <input type="role" name='role' value={this.state.role} onChange={this.onChangeUserRole} className="form-control" disabled="disabled"/>
         </label>
         </div>
 
         <input type="submit" className="btn btn-success btn-block" value="Submit" />
       </form>
+      </div>
+      </div>
+      </div>
+      </div>
     </>
   )
 }
