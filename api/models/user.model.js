@@ -4,7 +4,7 @@ const RoleSchema = new mongoose.Schema({
   name: {
       type: String,
       required: true,
-      enum: ['admin', 'leader', 'delivery_man', 'client']
+      enum: ['admin', 'leader', 'delivery man', 'client']
   },
   status: {
       type: Boolean

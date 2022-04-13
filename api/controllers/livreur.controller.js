@@ -4,7 +4,7 @@ const getUser = async (req, res) => {
 
     try {
 
-        const users = await User.find({}).sort('-createdAt')
+        const users = await User.find({'role.name': 'delivery man' })
 
         users ? res.json(users) : res.status(404).send('user Not Found')
 

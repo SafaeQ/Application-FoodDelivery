@@ -3,13 +3,14 @@ import axios from 'axios'
 import {useState, useEffect} from 'react'
 
 const DashboardDelevery = () => {
-  const [users, setUsers] = useState([])
+
+  const [deliveries, setDeliveries] = useState([])
 
     const fetchData = ()=>{
         axios
             .get('http://localhost:9988/api/livreurs')
             .then(response =>{
-            setUsers(response.data)
+              setDeliveries(response.data)
             })
             .catch(error => {
                 console.log({error});
@@ -38,22 +39,22 @@ const DashboardDelevery = () => {
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
-            <th scope="col">Adress</th>
+            <th scope="col">Role</th>
             <th scope="col">Number</th>
             <th scope="col">Password</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
-        {users.length > 0 ? (
-          users.map((user, i ) => (
+        {deliveries.length > 0 ? (
+          deliveries.map((deliverie, i ) => (
             <tr key={i}>
-            <th scope="row"> {user._id} </th>
-            <td> {user.name} </td>
-            <td>{user.email}</td>
-            <td>{user.adress}</td>
-            <td>{user.number}</td>
-            <td>{user.password} </td>
+            <th scope="row"> {deliverie.id} </th>
+            <td> {deliverie.name} </td>
+            <td>{deliverie.email}</td>
+            <td>{deliverie.role.name}</td>
+            <td>{deliverie.number}</td>
+            <td>{deliverie.password} </td>
             <td>
               <a className="btn btn-outline-danger">Delete</a>
             </td>
