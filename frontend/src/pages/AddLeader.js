@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import api from '../components/api';
+import { Link } from 'react-router-dom';
 
 
 export default class CreateUser extends Component {
@@ -58,11 +59,6 @@ export default class CreateUser extends Component {
               });
           this.setState({ name: '', email: '', password:'', number:'', adress:'', role:'leader' })
 
-        if (userObject ) {
-            alert('field the input first')
-        }else {
-          window.location.href = '/dashboard-leaders'
-        }
       }
 
   render() {
@@ -112,7 +108,7 @@ export default class CreateUser extends Component {
         </label>
         </div>
 
-        <input type="submit" className="btn btn-success btn-block" value="Submit" />
+        <Link to="/dashboard-leaders" > <input type="submit" className="btn btn-success btn-block" value="Submit" /> </Link>
       </form>
       </div>
       </div>

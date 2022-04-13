@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import api from "../components/api";
+import { Link } from "react-router-dom";
 
 const DashboardLeader = (props) => {
 
@@ -27,12 +28,6 @@ const DashboardLeader = (props) => {
     setLeaders(newList)
   }
 
-  const handleAddButton = (e)=>{
-    e.preventDefault();
-    console.log('hhhh')
-    window.location.href = '/add-leader'
-  }
-
   useEffect(()=>{
       fetchData()
   },[])
@@ -47,7 +42,8 @@ const DashboardLeader = (props) => {
 
       <div className="row justify-content-center h-100">
       <div className="col-md-12">
-      <button type="button" className="btn btn-outline-success" onClick={handleAddButton}>Add leader</button>
+      
+      <Link to="/add-leader">  <button type="button" className="btn btn-outline-success" >Add leader</button> </Link>
       <br/>
       <br/>
       <table className="table table-striped table-dark table-hover" >
