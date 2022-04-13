@@ -55,7 +55,6 @@ const DashboardDelevery = () => {
             <td>{user.number}</td>
             <td>{user.password} </td>
             <td>
-              <a className="btn btn-outline-primary">Edit</a>
               <a className="btn btn-outline-danger">Delete</a>
             </td>
           </tr>
