@@ -11,7 +11,7 @@ const signUp = async (req, res)=> {
         
         const emailExist = await User.findOne({ email: req.body.email });
 
-        if(emailExist) return res.status(400).send("Email Already Exist!");
+        if(emailExist) return res.status(200).send("Email Already Exist!");
         
         var salt = bcrypt.genSaltSync(10);
 

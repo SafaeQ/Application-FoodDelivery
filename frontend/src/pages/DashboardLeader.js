@@ -56,7 +56,7 @@ const DashboardLeader = (props) => {
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
-            <th scope="col">Adress</th>
+            <th scope="col">Role</th>
             <th scope="col">Number</th>
             <th scope="col">Password</th>
             <th scope="col">Actions</th>
@@ -69,7 +69,7 @@ const DashboardLeader = (props) => {
             <th scope="row"> {leader.id} </th>
             <td> {leader.name} </td>
             <td>{leader.email}</td>
-            <td>{leader.adress}</td>
+            <td>{leader.role.name}</td>
             <td>{leader.number}</td>
             <td>{leader.password} </td>
             <td>
