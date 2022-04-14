@@ -8,7 +8,7 @@ const checkAuthentication = require('../middlewares/auth')
 
 
 //# routes Create/remove Chef Secteur
-    livreurRouter.post('/add-livreur',checkAuthentication, isAuthorized('admin'), add_new_Delivery_man)
+    livreurRouter.post('/add-livreur', add_new_Delivery_man)
 
     livreurRouter.get('/livreurs', getUser)
 

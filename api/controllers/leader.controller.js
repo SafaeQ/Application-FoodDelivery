@@ -28,7 +28,7 @@ const add_new_chefSecteur = async (req, res) => {
         } : {
             name: role
         }})
-
+        // console.log(newLeader);
         const result = await newLeader.save()
 
         res.status(200).send(result)

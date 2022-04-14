@@ -42,6 +42,7 @@ export default class CreateUser extends Component {
       }
       onSubmit(e) {
           e.preventDefault()
+          console.log('clicked');
           const userObject = {
               name: this.state.name,
               email: this.state.email,
@@ -50,6 +51,7 @@ export default class CreateUser extends Component {
               adress: this.state.adress,
               role: this.state.role
           };
+          console.log(userObject);
           
         api.post('/api/add-leader', userObject)
               .then((res) => {
@@ -108,7 +110,7 @@ export default class CreateUser extends Component {
         </label>
         </div>
 
-        <Link to="/dashboard-leaders" > <input type="submit" className="btn btn-success btn-block" value="Submit" /> </Link>
+         <input type="submit" className="btn btn-success btn-block" value="Submit" />
       </form>
       </div>
       </div>

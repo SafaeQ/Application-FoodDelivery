@@ -23,7 +23,7 @@ const add_new_Delivery_man = async (req, res) => {
 
         const delivry_man = await User.create({ name, email, password, adress, number,
             
-                role: role === 'delivery_man' ? {
+                role: role === 'delivery man' ? {
                 name: role,
                 status: false
             } : {

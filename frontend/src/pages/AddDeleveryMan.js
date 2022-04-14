@@ -42,6 +42,7 @@ export default class CreateLivreur extends Component {
       }
       onSubmit(e) {
           e.preventDefault()
+          console.log('rrr');
           const userObject = {
               name: this.state.name,
               email: this.state.email,
@@ -108,7 +109,7 @@ export default class CreateLivreur extends Component {
         </label>
         </div>
 
-        <Link to="/dashboard-livreur" > <input type="submit" className="btn btn-success btn-block" value="Submit" /> </Link>
+        <input type="submit" className="btn btn-success btn-block" value="Submit" /> 
       </form>
       </div>
       </div>
