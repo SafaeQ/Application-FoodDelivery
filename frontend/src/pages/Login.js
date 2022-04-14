@@ -1,58 +1,45 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import api from '../components/api';
 
-class Login  extends React.Component  {
+const Login = () => {
 
-    constructor(props){
-      super(props)
-      this.onChangeUserEmail = this.onChangeUserEmail.bind(this);
-      this.onChangeUserPassword = this.onChangeUserPassword.bind(this);
+      const navigate = useNavigate();
 
-      this.onSubmit = this.onSubmit.bind(this);
-
-      this.state = {
+      const [user, setUser] = useState({
         email: '',
         password: ''
+      });
+      
+      const handleInputChange = (event) => {
+       const {name, value} = event.target
+       setUser(values => ({...values, [name]: value}))
       }
-    }
-
-    onChangeUserEmail(e) {
-      this.setState({email: e.target.value})
-    }
-    onChangeUserPassword(e) {
-      this.setState({password: e.target.value})
-    }
     
-    onSubmit(e) {
+    const onSubmit = (e) => {
       e.preventDefault()
       console.log('llll');
-      const user = {
-        email: this.state.email,
-        password: this.state.password,
-      }
-
       api.post('/auth/login', user)
         .then((res) => {
           console.log(res.data);
+          navigate('/')
         })
         .catch((err) => {
           console.log(err);
+          navigate('/login')
         })
-        this.setState({ email: '', password: ''})
     }
-
-  render() {
+  
   return (
     <>
-      <form className="form1" onSubmit={this.onSubmit} >
+      <form className="form1" onSubmit={onSubmit} >
         <h2>Login</h2><br/>
         <div className="form-group d-flex flex-column g-2">
         <label htmlFor="email" className="form-label m-2 h5">Email</label>
-        <input type="email" name="email" className="form-control-lg" value={this.state.email} onChange={this.onChangeUserEmail} placeholder="Email" /></div>
+        <input type="email" name="email" className="form-control-lg"  onChange={handleInputChange} placeholder="Email" /></div>
         <div className="form-group d-flex flex-column g-2">
         <label htmlFor="password" className="form-label m-2 h5">Password</label>
-        <input type="password" name="password" className="form-control-lg" value={this.state.password} onChange={this.onChangeUserPassword} placeholder="Password" />
+        <input type="password" name="password" className="form-control-lg" onChange={handleInputChange} placeholder="Password" />
         </div>
         <button className="btn btn-primary btn-lg m-3 ms-0">Sign in</button>
         <hr/>
@@ -61,6 +48,6 @@ class Login  extends React.Component  {
     </>
   );
 }
-}
+
 
 export default Login;
