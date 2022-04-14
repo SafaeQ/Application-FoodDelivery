@@ -1,10 +1,10 @@
-const Leader = require('../models/leader.model')
+const {User} = require('../models/user.model')
 
 
 const getLeaders = async (req, res) => {
 
     try {
-        const leaders = await Leader.find({ 'role.name': { $gte: 'leader' } })
+        const leaders = await User.find({ 'role.name': { $gte: 'leader' } })
 
         leaders ? res.json(leaders) : res.status(404).send('leader Not Found')
 
@@ -12,15 +12,15 @@ const getLeaders = async (req, res) => {
 
         res.status(404).send(error)
 
-        throw new Error('No Leader Found')
+        throw new Error('No User Found')
     }
 }
 
 const add_new_chefSecteur = async (req, res) => {
     try {
-        const { name, password, email, role, number } = req.body
+        const { name, password, email, role, adress, number } = req.body
 
-        const newLeader = await Leader.create({ name, password, email, number,
+        const newLeader = await User.create({ name, password, email, adress, number,
 
             role: role === 'leader' ? {
             name: role,
@@ -43,11 +43,11 @@ const delete_chefSecteur = async (req, res) => {
     try {
         const id = req.params.id
 
-        const leader = await Leader.findOneAndDelete(id)
+        const user = await User.findOneAndDelete(id)
 
-        leader.catch((error) => { throw error })
+        user.catch((error) => { throw error })
 
-        res.status(200).send('Leader is deleted')
+        res.status(200).send('User is deleted')
 
     } catch (error) {
         
