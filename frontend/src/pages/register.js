@@ -21,7 +21,7 @@ class Register extends React.Component {
 
   handleSubmit = (e) => {
       e.preventDefault()
-      console.log('rr');
+      console.log('clicked');
       const user = {
         name: this.state.name,
         email: this.state.email,
@@ -30,10 +30,12 @@ class Register extends React.Component {
         adress: this.state.adress,
         role: this.state.role
     };
+
     console.log(user);
     api.post('/auth/signup', user)
         .then((res) => {
           console.log(res.data)
+          
       }).catch((error) => {
           console.log(error)
       });
