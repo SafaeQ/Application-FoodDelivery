@@ -43,11 +43,9 @@ const delete_chefSecteur = async (req, res) => {
     try {
         const id = req.params.id
 
-        const user = await User.findOneAndDelete(id)
+        const user = await User.findByIdAndRemove(id)
 
-        user.catch((error) => { throw error })
-
-        res.status(200).send('User is deleted')
+        res.status(200).json({user, msg: 'user is deleted'})
 
     } catch (error) {
         

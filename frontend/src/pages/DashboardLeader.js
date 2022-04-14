@@ -23,7 +23,7 @@ const DashboardLeader = (props) => {
     console.log(id)
     await api.delete(`api/delete-leader/${id}`)
     const newList = leaders.filter((leader)=> {
-      return leader.id !== id
+      return leader._id !== id
     })
     setLeaders(newList)
   }
