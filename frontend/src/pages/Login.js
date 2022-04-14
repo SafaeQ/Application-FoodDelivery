@@ -32,39 +32,27 @@ class Login  extends React.Component  {
         password: this.state.password,
       }
 
-      api.post('/', user)
-         .then((res) => {
-           console.log(res.data);
-         })
-         .catch((err) => {
-           console.log(err);
-         })
-         this.setState({ email: '', password: ''})
-    }
- 
-    
-
-    handleChange = (e) =>{
-      const {name,value} = e.target
-      this.setState({[name]:value})
-    }
-
-    handleSubmit = (e) =>{
-      e.preventDefault()
-      this.props.isLogin(true)
+      api.post('/auth/login', user)
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        this.setState({ email: '', password: ''})
     }
 
   render() {
   return (
     <>
-      <form className="form1" >
+      <form className="form1" onSubmit={this.onSubmit} >
         <h2>Login</h2><br/>
         <div className="form-group d-flex flex-column g-2">
         <label htmlFor="email" className="form-label m-2 h5">Email</label>
-        <input type="email" name="email" className="form-control-lg"  placeholder="Email" required/></div>
+        <input type="email" name="email" className="form-control-lg" value={this.state.email} onChange={this.onChangeUserEmail} placeholder="Email" /></div>
         <div className="form-group d-flex flex-column g-2">
         <label htmlFor="password" className="form-label m-2 h5">Password</label>
-        <input type="password" name="password" className="form-control-lg"  placeholder="Password" required/>
+        <input type="password" name="password" className="form-control-lg" value={this.state.password} onChange={this.onChangeUserPassword} placeholder="Password" />
         </div>
         <button className="btn btn-primary btn-lg m-3 ms-0">Sign in</button>
         <hr/>
