@@ -45,15 +45,13 @@ const delete_Delivery_man = async (req, res) => {
     try {
         const id = req.params.id
     
-        const delivery_man = await User.findOneAndDelete(id)
+        const delivery_man = await User.findByIdAndRemove(id)
 
-        // delivery_man.catch((error) => { throw error })
-
-        res.status(200).json(delivery_man, 'delivery_man is deleted')
+        res.status(200).json({delivery_man, msg: 'delivery_man is deleted'})
 
     } catch (error) {
         
-        res.status(400).send(error)
+        res.status(500).send(error)
     }
 }
 
