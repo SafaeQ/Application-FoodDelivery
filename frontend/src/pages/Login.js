@@ -1,7 +1,60 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import api from '../components/api';
 
-const Login = () => {
+class Login  extends React.Component  {
+
+    constructor(props){
+      super(props)
+      this.onChangeUserEmail = this.onChangeUserEmail.bind(this);
+      this.onChangeUserPassword = this.onChangeUserPassword.bind(this);
+
+      this.onSubmit = this.onSubmit.bind(this);
+
+      this.state = {
+        email: '',
+        password: ''
+      }
+    }
+
+    onChangeUserEmail(e) {
+      this.setState({email: e.target.value})
+    }
+    onChangeUserPassword(e) {
+      this.setState({password: e.target.value})
+    }
+    
+    onSubmit(e) {
+      e.preventDefault()
+      console.log('llll');
+      const user = {
+        email: this.state.email,
+        password: this.state.password,
+      }
+
+      api.post('/', user)
+         .then((res) => {
+           console.log(res.data);
+         })
+         .catch((err) => {
+           console.log(err);
+         })
+         this.setState({ email: '', password: ''})
+    }
+ 
+    
+
+    handleChange = (e) =>{
+      const {name,value} = e.target
+      this.setState({[name]:value})
+    }
+
+    handleSubmit = (e) =>{
+      e.preventDefault()
+      this.props.isLogin(true)
+    }
+
+  render() {
   return (
     <>
       <form className="form1" >
@@ -19,6 +72,7 @@ const Login = () => {
       </form>
     </>
   );
+}
 }
 
 export default Login;
