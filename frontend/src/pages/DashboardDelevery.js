@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom';
+import api from '../components/api';
 
 const DashboardDelevery = () => {
 
@@ -16,6 +17,15 @@ const DashboardDelevery = () => {
             .catch(error => {
                 console.log({error});
             })
+    }
+
+    const deleteUser = async (id) => {
+      console.log(id)
+      await api.delete(`api/delete-livreur/${id}`)
+      const newList = deliveries.filter((deliverie)=> {
+        return deliverie._id !== id
+      })
+      setDeliveries(newList)
     }
 
     useEffect(()=>{
@@ -58,7 +68,7 @@ const DashboardDelevery = () => {
             <td>{deliverie.number}</td>
             <td>{deliverie.password} </td>
             <td>
-              <a className="btn btn-outline-danger">Delete</a>
+              <a className="btn btn-outline-danger" onClick={() => deleteUser(deliverie._id)} >Delete</a>
             </td>
           </tr>
           ))

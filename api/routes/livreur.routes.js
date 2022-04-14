@@ -12,7 +12,7 @@ const checkAuthentication = require('../middlewares/auth')
 
     livreurRouter.get('/livreurs', getUser)
 
-    livreurRouter.post('/delete-livreur/:id',checkAuthentication, isAuthorized('admin'), delete_Delivery_man)
+    livreurRouter.delete('/delete-livreur/:id', delete_Delivery_man)
 
 
 module.exports = livreurRouter

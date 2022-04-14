@@ -42,14 +42,16 @@ const add_new_Delivery_man = async (req, res) => {
 }
 
 const delete_Delivery_man = async (req, res) => {
-    const id = req.params.id
-
     try {
-        const delivery_man = await User.findOneAndDelete(id)
+        const id = req.params.id
 
-        delivery_man.catch((error) => { throw error })
+        const role = role._id
+    
+        const delivery_man = await User.findOneAndDelete(role)
 
-        res.status(200).json('delivery_man is deleted')
+        // delivery_man.catch((error) => { throw error })
+
+        res.status(200).json(delivery_man, 'delivery_man is deleted')
 
     } catch (error) {
         
