@@ -52,5 +52,4 @@ const User = mongoose.model(
     )
 )
 
-module.exports = {User} 
-module.exports = RoleSchema
+module.exports = User 
