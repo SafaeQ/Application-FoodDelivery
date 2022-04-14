@@ -44,10 +44,8 @@ const add_new_Delivery_man = async (req, res) => {
 const delete_Delivery_man = async (req, res) => {
     try {
         const id = req.params.id
-
-        const role = role._id
     
-        const delivery_man = await User.findOneAndDelete(role)
+        const delivery_man = await User.findOneAndDelete(id)
 
         // delivery_man.catch((error) => { throw error })
 
