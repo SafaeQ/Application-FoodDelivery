@@ -2,12 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import api from "../components/api";
-import { Link, useNavigate } from "react-router-dom";
-import UserService from "../services/user-service";
+import { Link } from "react-router-dom";
+// import UserService from "../services/user-service";
 
 const DashboardLeader = (props) => {
 
-  const navigate = useNavigate();
   const [leaders, setLeaders] = useState([]);
 
   const fetchData = ()=>{
@@ -30,22 +29,22 @@ const DashboardLeader = (props) => {
     setLeaders(newList)
   }
 
-  // useEffect(()=>{
-  //     fetchData()
-  // },[])
-
-  useEffect(() => {
+  useEffect(()=>{
       fetchData()
-      console.log('zezezae');
-    UserService.getAdminBoard().then(
-      (response) => {
-        setLeaders(response.data);
-      },
-    ).catch((err)=> {
-      console.log(err);
-      navigate('/login')
-    })
-  }, []);
+  },[])
+
+  // useEffect(() => {
+  //     fetchData()
+  //     // console.log('zezezae');
+  //     UserService.getAdminBoard().then(
+  //       (response) => {
+  //       setLeaders(response.data);
+  //     },
+  //   ).catch((err)=> {
+  //     console.log(err);
+  //     navigate('/login')
+  //   })
+  // });
 
   return (
     <>
