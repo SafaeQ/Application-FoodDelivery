@@ -23,7 +23,7 @@ const Login = () => {
       api.post('/auth/login', user)
         .then((res) => {
           console.log(res.data);
-          navigate('/')
+          navigate('/dashboard-leaders')
         })
         .catch((err) => {
           console.log(err);

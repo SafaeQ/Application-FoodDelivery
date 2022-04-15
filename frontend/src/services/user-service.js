@@ -1,9 +1,11 @@
-import api from "../components/api";
+import axios from "axios";
+// import api from "../components/api";
 import authHeader from "./auth-header";
+const URL = 'http://localhost:9988/api/leaders'
 
 
 const getAdminBoard = () => {
-    return api.get("admin", { headers: authHeader() });
+    return axios.get(URL +"admin", { headers: authHeader() });
 };
 
 const UserService = {

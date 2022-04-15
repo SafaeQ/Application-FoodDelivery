@@ -10,7 +10,7 @@ const checkAuthentication = require('../middlewares/auth')
 //# routes Create/remove Chef Secteur
     leaderRouter.post('/add-leader',checkAuthentication, add_new_chefSecteur)
 
-    leaderRouter.get('/leaders',checkAuthentication, getLeaders)
+    leaderRouter.get('/leaders', getLeaders)
 
     leaderRouter.delete('/delete-leader/:id',checkAuthentication, isAuthorized('admin'), delete_chefSecteur)
 
