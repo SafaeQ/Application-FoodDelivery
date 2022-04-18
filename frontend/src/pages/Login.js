@@ -22,8 +22,16 @@ const Login = () => {
       console.log('llll');
       api.post('/auth/login', user)
         .then((res) => {
-          console.log(res.data);
-          navigate('/dashboard-leaders')
+          if (user.role === 'leader') {
+            console.log(res.data);
+            navigate('/dashboard-livreur')
+          }else if (user.role === 'admin') {
+            console.log(res.data);
+            navigate('/dashboard-leaders')
+          }else {
+            alert('you r not admin or leader')
+          }
+          
         })
         .catch((err) => {
           console.log(err);
