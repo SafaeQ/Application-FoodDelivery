@@ -14,7 +14,11 @@ function App() {
     <>
     <Navbar />
     <Routes>      
-        <PrivateRoute path='/' element={<Home />} />      
+        <Route path='/' element={ 
+            <PrivateRoute user={'leader'}>
+              <Home />
+            </PrivateRoute> 
+          } />      
         <Route path='/login' element={<Login />} />      
         <Route path='/register' element={<Register />} />      
         <Route path='/dashboard-livreur' element={<DashboardDelevery />} />      
