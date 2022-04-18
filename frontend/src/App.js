@@ -7,7 +7,7 @@ import DashboardDelevery from './pages/DashboardDelevery'
 import DashboardLeader from './pages/DashboardLeader';
 import CreateUser from './pages/AddLeader';
 import CreateLivreur from './pages/AddDeleveryMan';
-import  PrivateRoute from './components/PrivateRoute';
+import  ProtectedRoute from './components/PrivateRoute';
 
 function App() {
   return (
@@ -15,9 +15,9 @@ function App() {
     <Navbar />
     <Routes>      
         <Route path='/' element={
-            <PrivateRoute user={'leader'}>
+            <ProtectedRoute>
               <Home />
-            </PrivateRoute> 
+            </ProtectedRoute> 
           } /> 
         <Route path='/login' element={<Login />} />      
         <Route path='/register' element={<Register />} />      
