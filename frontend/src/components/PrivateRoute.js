@@ -1,9 +1,9 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 
-const PrivateRoute = ({ user, children }) => {
+const PrivateRoute = ({ user, redirectPath = '/login', children }) => {
     if (!user) {
-      return <Navigate to="/login" replace />;
+      return <Navigate to={redirectPath} replace />;
     }
   
     return children;
