@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../components/api';
+import jwt_decode from "jwt-decode";
+ 
+
 
 
 const Login = () => {
@@ -17,16 +20,17 @@ const Login = () => {
        setUser(values => ({...values, [name]: value}))
       }
     
-    const onSubmit = (e) => {
-      e.preventDefault()
+      const onSubmit = (e) => {
+        e.preventDefault()
       console.log('llll');
       api.post('/auth/login', user)
         .then((res) => {
-          if (user.role === 'leader') {
-            console.log(res.data);
+          const {token} = res.data
+          var decoded = jwt_decode(token);
+          console.log(decoded.role.name);
+          if (decoded.role.name === 'leader') {
             navigate('/dashboard-livreur')
-          }else if (user.role === 'admin') {
-            console.log(res.data);
+          }else if (decoded.role.name === 'admin') {
             navigate('/dashboard-leaders')
           }else {
             alert('oh oh')
