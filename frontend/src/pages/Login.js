@@ -29,7 +29,7 @@ const Login = () => {
             console.log(res.data);
             navigate('/dashboard-leaders')
           }else {
-            alert('you r not admin or leader')
+            alert('oh oh')
           }
           
         })
