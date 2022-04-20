@@ -26,8 +26,15 @@ function App() {
           <DashboardDelevery />
         </PrivateRoute>
         } />      
-        <Route path='/dashboard-leaders' element={<DashboardLeader />} />      
-        <Route path='/add-leader' element={<CreateUser />} />      
+        <Route path='/dashboard-leaders' element={
+          <PrivateRoute user={'leader'}>
+            <DashboardLeader />
+          </PrivateRoute>
+        } />      
+        <Route path='/add-leader' element={
+        <PrivateRoute user={'leader'}>
+          <CreateUser />
+        </PrivateRoute>} />      
         <Route path='/add-livreur' element={<CreateLivreur />} />      
     </Routes>
     </>
