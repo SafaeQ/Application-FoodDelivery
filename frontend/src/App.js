@@ -27,7 +27,7 @@ function App() {
         </PrivateRoute>
         } />      
         <Route path='/dashboard-leaders' element={
-          <PrivateRoute user={'leader'}>
+          <PrivateRoute user={'admin'}>
             <DashboardLeader />
           </PrivateRoute>
         } />      
