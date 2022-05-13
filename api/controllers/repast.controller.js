@@ -13,13 +13,22 @@ const getAll_Repast = async (req, res) => {
     }
 }
 
-const add_Repast = async (req,res) => {
+const add_Repast = async (req, res) => {
     try {
-        const repast = await Repast.create(req.body)
+        const { name, price, category, description, restaurant , rating} = req.body
 
-        const result = await repast.save()
+        const imageFiles = req.files
 
-        res.status(200).send(result)
+        const uploadImages = imageFiles.map((file)=> {
+            return file.filename
+        })
+
+        console.log(uploadImages);
+        const repast = await Repast.create({ name, price, category, description, restaurant , rating, image: uploadImages})
+
+        // const result = await repast.save()
+
+        res.status(200).send(repast)
 
     } catch (error) {
 
