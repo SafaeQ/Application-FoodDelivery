@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
 
     repastRouter.post('/add-repast', checkAuthentication, isAuthorized('leader'), upload.array('image'), add_Repast)
 
-    repastRouter.get('/all-repast', getAll_Repast)
+    repastRouter.get('/', getAll_Repast)
 
     repastRouter.delete('/delete-repast/:id',checkAuthentication, isAuthorized('leader'), delete_repast)
 
