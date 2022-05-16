@@ -31,8 +31,8 @@ const repastSchema = new Schema(
         trim: true
     },
     image : {
-      type: Array,
-      data: Buffer
+      type: String,
+      required: true
     },
     restaurant: { 
       type: mongoose.Schema.Types.ObjectId,

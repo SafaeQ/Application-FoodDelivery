@@ -1,4 +1,6 @@
 const repastRouter = require('express').Router()
+const multer = require('multer')
+const path = require('path')
 
 const {add_Repast, getAll_Repast, delete_repast } = require('../controllers/repast.controller')
 
@@ -6,22 +8,33 @@ const isAuthorized = require('../middlewares/permission')
 
 const checkAuthentication = require('../middlewares/auth')
 
-const multer  = require('multer')
+// const multer  = require('multer')
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, './image')
-    },
-    filename: function (req, file, cb) {
-      cb(null, new Date().toISOString().replace(/:/g, '-') + file.originalname);
-    }
-  })
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//       cb(null, './image')
+//     },
+//     filename: function (req, file, cb) {
+//       cb(null, new Date().toISOString().replace(/:/g, '-') + file.originalname);
+//     }
+//   })
   
-  const upload = multer({ storage: storage })
+//   const upload = multer({ storage: storage })
+                 
+
+const storage=multer.diskStorage({
+    destination: (req, file, cb) =>{
+        cb(null, 'image')
+    },
+    filename: (req, file, cb) =>{
+        console. log(file)
+        cb(null, Date.now()+path.extname (file.originalname))
+}})
+const upload=multer({storage: storage})
 
 
 
-    repastRouter.post('/add-repast', checkAuthentication, isAuthorized('leader'), upload.array('image'), add_Repast)
+    repastRouter.post('/add-repast', checkAuthentication, isAuthorized('leader'), upload.single('image'), add_Repast)
 
     repastRouter.get('/', getAll_Repast)
 
