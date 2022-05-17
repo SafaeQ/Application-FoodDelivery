@@ -33,19 +33,6 @@ const DashboardLeader = (props) => {
       fetchData()
   },[])
 
-  // useEffect(() => {
-  //     fetchData()
-  //     // console.log('zezezae');
-  //     UserService.getAdminBoard().then(
-  //       (response) => {
-  //       setLeaders(response.data);
-  //     },
-  //   ).catch((err)=> {
-  //     console.log(err);
-  //     navigate('/login')
-  //   })
-  // });
-
   return (
     <>
       
