@@ -7,7 +7,7 @@ import DashboardDelevery from './pages/DashboardDelevery'
 import DashboardLeader from './pages/DashboardLeader';
 import CreateUser from './pages/AddLeader';
 import CreateLivreur from './pages/AddDeleveryMan';
-import  PrivateRoute from './components/PrivateRoute';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
