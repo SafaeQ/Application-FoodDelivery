@@ -22,7 +22,7 @@ function App() {
         <Route path='/login' element={<Login />} />      
         <Route path='/register' element={<Register />} />      
         <Route path='/dashboard-livreur' element={
-        <PrivateRoute>
+        <PrivateRoute user={'leader'}>
           <DashboardDelevery />
         </PrivateRoute>
         } />      
