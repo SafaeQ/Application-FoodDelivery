@@ -21,7 +21,6 @@ const signUp = async (req, res)=> {
         const user = await User.create( { name, password: hashedPassword, email, adress, number,
                 role: role === 'admin' ? {
                 name: role,
-                status: false
             } : {
                 name: role
             }})

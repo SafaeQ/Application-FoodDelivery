@@ -18,7 +18,7 @@ const storage=multer.diskStorage({
         console. log(file)
         cb(null, Date.now()+path.extname (file.originalname))
 }})
-const upload=multer({storage: storage})
+const upload= multer({storage: storage})
 
 
 
