@@ -56,5 +56,10 @@ app.use('/repast', repastRouter)
 app.use('/user', orderRouter)
 
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+}
+
+
 //# running the server
 db().catch((err)=>{ throw err }).then(()=>{ app.listen(PORT,()=>{ console.log(` 🐱The app is runnig`) })})
