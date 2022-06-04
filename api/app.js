@@ -8,6 +8,7 @@ const cors = require('cors')
 
 const db = require('./connection/db')
 
+const PORT = process.env.PORT || 9001
 
 //# routes
 const leaderRouter = require('./routes/leader.routes')
@@ -56,4 +57,4 @@ app.use('/user', orderRouter)
 
 
 //# running the server
-db().catch((err)=>{ throw err }).then(()=>{ app.listen(process.env.PORT,()=>{ console.log(` 🐱The app is runnig`) })})
+db().catch((err)=>{ throw err }).then(()=>{ app.listen(PORT,()=>{ console.log(` 🐱The app is runnig`) })})
