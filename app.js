@@ -11,17 +11,17 @@ const db = require('./connection/db')
 const PORT = process.env.PORT || 9001
 
 //# routes
-const leaderRouter = require('./api/routes/leader.routes')
+const leaderRouter = require('./routes/leader.routes')
 
-const livreurRouter = require('./api/routes/livreur.routes')
+const livreurRouter = require('./routes/livreur.routes')
 
-const restaurantRouter = require('./api/routes/restaurant.routes')
+const restaurantRouter = require('./routes/restaurant.routes')
 
-const orderRouter = require('./api/routes/order.routes')
+const orderRouter = require('./routes/order.routes')
 
-const repastRouter = require('./api/routes/repast.routes')
+const repastRouter = require('./routes/repast.routes')
 
-const router = require('./api/routes/routes')
+const router = require('./routes/routes')
 
 
 const app = express();
