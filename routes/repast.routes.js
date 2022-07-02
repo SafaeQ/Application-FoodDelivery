@@ -8,7 +8,7 @@ const isAuthorized = require('../middlewares/permission')
 
 const checkAuthentication = require('../middlewares/auth')
 
-                
+
 
 const storage=multer.diskStorage({
     destination: (req, file, cb) =>{

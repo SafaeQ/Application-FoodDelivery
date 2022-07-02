@@ -55,6 +55,7 @@ const delete_Delivery_man = async (req, res) => {
     }
 }
 
+
 module.exports= {
     add_new_Delivery_man, delete_Delivery_man, getUser
 }
